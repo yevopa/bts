@@ -270,19 +270,5 @@ DROP TABLE IF EXISTS `comment`;
         Yii::$app->db->createCommand($baseQuery)
             ->queryAll();
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m180218_221208_base cannot be reverted.\n";
-
-        return false;
-    }
-    */
+    
 }
