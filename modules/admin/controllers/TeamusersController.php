@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * TeamusersController implements the CRUD actions for Teamusers model.
  */
-class TeamusersController extends Controller
+class TeamusersController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Teamusers models.

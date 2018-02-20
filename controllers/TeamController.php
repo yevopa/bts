@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * TeamController implements the CRUD actions for Team model.
  */
-class TeamController extends Controller
+class TeamController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Team models.

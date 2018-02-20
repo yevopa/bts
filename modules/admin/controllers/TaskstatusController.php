@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * TaskstatusController implements the CRUD actions for Taskstatus model.
  */
-class TaskstatusController extends Controller
+class TaskstatusController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Taskstatus models.

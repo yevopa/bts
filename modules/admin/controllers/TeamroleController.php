@@ -12,23 +12,9 @@ use yii\filters\VerbFilter;
 /**
  * TeamroleController implements the CRUD actions for Teamrole model.
  */
-class TeamroleController extends Controller
+class TeamroleController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
+    
     /**
      * Lists all Teamrole models.
      * @return mixed

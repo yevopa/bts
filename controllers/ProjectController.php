@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\controllers\DefaultController;
 use Yii;
 use app\models\Project;
 use app\models\ProjectSearch;
@@ -12,22 +13,8 @@ use yii\filters\VerbFilter;
 /**
  * ProjectController implements the CRUD actions for Project model.
  */
-class ProjectController extends Controller
+class ProjectController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Project models.

@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * SprintController implements the CRUD actions for Sprint model.
  */
-class SprintController extends Controller
+class SprintController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Sprint models.

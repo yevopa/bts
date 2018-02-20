@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * TaskpriorityController implements the CRUD actions for Taskpriority model.
  */
-class TaskpriorityController extends Controller
+class TaskpriorityController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Taskpriority models.

@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
- * Default controller for the `admin` module
+ * Site controller
  */
 class DefaultController extends Controller
 {
@@ -26,16 +26,9 @@ class DefaultController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'index', 'view', 'update', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['index', 'view', 'update', 'delete'],
-                        'allow' => true,
-                        'matchCallback' => function ($rule, $action) {
-                            return Yii::$app->user->identity->usertype_id == 1;
-                        }
                     ],
                     [
                         'actions' => ['request-password-reset', 'error'],
@@ -52,12 +45,4 @@ class DefaultController extends Controller
         ];
     }
 
-    /**
-     * Renders the index view for the module
-     * @return string
-     */
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
 }

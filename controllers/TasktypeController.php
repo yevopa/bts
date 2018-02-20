@@ -12,23 +12,9 @@ use yii\filters\VerbFilter;
 /**
  * TasktypeController implements the CRUD actions for Tasktype model.
  */
-class TasktypeController extends Controller
+class TasktypeController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
+    
     /**
      * Lists all Tasktype models.
      * @return mixed

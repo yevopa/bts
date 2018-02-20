@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * UsertypeController implements the CRUD actions for Usertype model.
  */
-class UsertypeController extends Controller
+class UsertypeController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Usertype models.

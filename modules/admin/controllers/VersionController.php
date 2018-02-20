@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * VersionController implements the CRUD actions for Version model.
  */
-class VersionController extends Controller
+class VersionController extends DefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Version models.
