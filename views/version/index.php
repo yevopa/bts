@@ -2,12 +2,14 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\widgets\Pjax;
+    use yii\helpers\Url;
+    use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VersionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Versions';
+$this->params['breadcrumbs'][] = $project->name;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="version-index">
@@ -26,12 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'project_id',
+            //'id',
+           // 'project_id',
             'name',
+            //'create_date',
+            'finish_date',
             'description:ntext',
-            'create_date',
-            //'finish_date',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

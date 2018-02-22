@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Project;
 use Yii;
 use app\models\Version;
 use app\models\VersionSearch;
@@ -19,14 +20,16 @@ class VersionController extends DefaultController
      * Lists all Version models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($project_id)
     {
         $searchModel = new VersionSearch();
+        $searchModel->project_id = $project_id;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'project' => Project::findOne(['id' => $project_id])
         ]);
     }
 

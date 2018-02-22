@@ -48,7 +48,7 @@ class Version extends \yii\db\ActiveRecord
             'name' => 'Name',
             'description' => 'Description',
             'create_date' => 'Create Date',
-            'finish_date' => 'Finish Date',
+            'finish_date' => 'Release Date',
         ];
     }
 }
