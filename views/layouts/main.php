@@ -4,10 +4,12 @@
 /* @var $content string */
 
 use app\widgets\Alert;
-use yii\helpers\Html;
+    use app\models\Project;
+    use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
+    use yii\helpers\Url;
+    use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
@@ -35,7 +37,24 @@ AppAsset::register($this);
                 'class' => 'navbar-inverse navbar-fixed-top',
             ],
         ]);
+
+        $projectDropdownItems = function(){
+            $projectsList = [
+                '<li>' . Html::a('Create project', ['project/create'], [
+                    'class' => 'btn btn-success',
+                    'role' => 'button'
+                ]) . '</li>',
+                '<li class="divider"></li>',
+                ];
+            foreach (Project::find()->orderBy(['id' => SORT_DESC])->all() as $project) $projectsList[] = ['label' => $project->name, 'url' => Url::toRoute(['project/view', 'id' => $project->id])];
+            return $projectsList;
+        };
+
         $menuItems = [
+            [
+                'label' => 'Projects',
+                'items' => $projectDropdownItems()
+            ],
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
@@ -68,14 +87,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
