@@ -12,6 +12,9 @@ use yii\web\Controller;
  */
 class DefaultController extends Controller
 {
+
+    public $layout = '@app/modules/admin/views/layouts/main.php';
+
     /**
      * @inheritdoc
      */
