@@ -38,15 +38,14 @@ AppAsset::register($this);
             ],
         ]);
 
-        $projectDropdownItems = function(){
-            $projectsList = [
-                '<li>' . Html::a('Create project', ['project/create'], [
-                    'class' => 'btn btn-success',
-                    'role' => 'button'
-                ]) . '</li>',
-                '<li class="divider"></li>',
-                ];
-            foreach (Project::find()->orderBy(['id' => SORT_DESC])->all() as $project) $projectsList[] = ['label' => $project->name, 'url' => Url::toRoute(['project/view', 'id' => $project->id])];
+        $projectDropdownItems = function($projectsList = []){
+            foreach (Project::find()->orderBy(['id' => SORT_DESC])->all() as $project) {
+                $projectsList[] = '<li>' . Html::img(Url::toRoute(['project/get', 'id' => $project->id]),['width' => 24, 'class' => 'img-circle', 'style' => 'display: inline-block; padding-left: 4px;']) .
+                Html::a($project->name, ['project/view', 'id' => $project->id], ['style' => 'display: inline-block;']) . '</li>';
+            }
+            $projectsList[] = '<li class="divider"></li>';
+            $projectsList[] = ['label' => 'Create project', 'url' => Url::toRoute('project/create')];
+
             return $projectsList;
         };
 

@@ -11,6 +11,7 @@ use Yii;
  * @property string $name
  * @property int $team_id
  * @property int $description
+ * @property string $logo
  */
 class Project extends \yii\db\ActiveRecord
 {
@@ -31,6 +32,7 @@ class Project extends \yii\db\ActiveRecord
             [['team_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['description'], 'string'],
+            [['logo'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -44,6 +46,7 @@ class Project extends \yii\db\ActiveRecord
             'name' => 'Name',
             'team_id' => 'Team ID',
             'description' => 'Description',
+            'logo' => 'Logo',
         ];
     }
 }
