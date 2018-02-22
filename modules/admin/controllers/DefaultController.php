@@ -31,7 +31,7 @@ class DefaultController extends Controller
                         'roles' => ['@'],
                     ],
                     [
-                        'actions' => ['index', 'view', 'update', 'delete'],
+                        'actions' => ['index', 'view', 'update', 'delete', 'create'],
                         'allow' => true,
                         'matchCallback' => function ($rule, $action) {
                             return Yii::$app->user->identity->usertype_id == 1;
